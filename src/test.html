@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>HAHAHA</h1>
+    <script>
+        async function get(){
+        console.log(2)
+        let data;
+        await   fetch("http://192.168.0.108:8080/", {
+        method: "GET",
+        header: {
+        mode: 'no-cors'
+        },
+        }).then(res => res.text()).then(result => data = result);
+        document.querySelector('body').innerHTML =data
+        console.log(ele)
+        console.log(data)
+        }
+        get();
+    </script>
+  </body>
+</html>

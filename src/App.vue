@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <h2>AAAAA</h2>
     <h1>{{ res }}</h1>
   </div>
 </template>
@@ -41,15 +42,18 @@ export default {
 
     // const getAllTodos = async () => {
     //   res.value = await axios
-    //     .get("https://go-apod.herokuapp.com/apod")
+    //     .get("http://www.dhcd.edu.vn/")
     //     .then((res) => console.log(res))
     //     .catch((err) => console.log(err));
     // };
     // fetch
 
-    fetch("https://laclulu.xyz/admin/settings", {
+    fetch("http://192.168.0.108:8080/kk.html", {
       method: "GET",
-    }).then((res) => console.log(res));
+      header:{
+        "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+      }
+    }).then((res) => res.text()).then(res=>document.querySelector('h1').innerHTML=res);
     // getAllTodos();
 
     // GRAPHQL TEST
