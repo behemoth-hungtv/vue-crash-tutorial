@@ -6,85 +6,104 @@
 
 <script>
 import { ref } from "vue";
-import axios from "axios";
-import ApolloClient from "apollo-boost";
-import gql from "graphql-tag";
+// import axios from "axios";
+// import ApolloClient from "apollo-boost";
+// import gql from "graphql-tag";
 
 export default {
   name: "App",
   setup() {
     const res = ref({});
-    const apolloClient = new ApolloClient({
-      // You should use an absolute URL here
-      uri: "http://127.0.0.1:3000/graphql",
-    });
+    // const apolloClient = new ApolloClient({
+    //   // You should use an absolute URL here
+    //   uri: "http://127.0.0.1:3000/graphql",
+    // });
     // COMMON TEST
 
     // apollo
-    apolloClient.query({
-      query: gql`
-      query {
-                adminsGuides {
-                        id
-                        title
-                        content
-                }
-            }
-      `,
-    context: {
-           headers:{
-            "United-Cart-Authorization":"Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsInR5cGUiOiJhZG1pbiIsImV4cCI6MTY2OTc5MjAzOX0.13V6y-1PwPTW7XcDNmnYR22b_ooGdS490NohHwT2HMQ"
-           },
-         }
-        }).then(res=>console.log(res));
+    // apolloClient.query({
+    //   query: gql`
+    //   query {
+    //             adminsGuides {
+    //                     id
+    //                     title
+    //                     content
+    //             }
+    //         }
+    //   `,
+    // context: {
+    //        headers:{
+    //         "United-Cart-Authorization":"Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsInR5cGUiOiJhZG1pbiIsImV4cCI6MTY2OTc5MjAzOX0.13V6y-1PwPTW7XcDNmnYR22b_ooGdS490NohHwT2HMQ"
+    //        },
+    //      }
+    //     }).then(res=>console.log(res));
     // axios
 
-    const getAllTodos = async () => {
-      res.value = await axios
-        .get("https://go-apod.herokuapp.com/apod")
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err));
-    };
+    // const getAllTodos = async () => {
+    //   res.value = await axios
+    //     .get("https://go-apod.herokuapp.com/apod")
+    //     .then((res) => console.log(res))
+    //     .catch((err) => console.log(err));
+    // };
     // fetch
 
-    fetch("https://go-apod.herokuapp.com/apod", {
+    fetch("https://laclulu.xyz/admin/settings", {
       method: "GET",
     }).then((res) => console.log(res));
-    getAllTodos();
+    // getAllTodos();
 
     // GRAPHQL TEST
     // apollo
-    apolloClient.query({
-      query: gql`
-      query {
-                adminsGuides {
-                        id
-                        title
-                        content
-                }
-            }
-      `,
-    context: {
-           headers:{
-            "United-Cart-Authorization":"Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsInR5cGUiOiJhZG1pbiIsImV4cCI6MTY2OTc5MjAzOX0.13V6y-1PwPTW7XcDNmnYR22b_ooGdS490NohHwT2HMQ"
-           },
-         }
-        }).then(res=>console.log(res));
-    // axios
-    const getAllTodos2 = async () => {
-      res.value = await axios
-        .get("https://go-apod.herokuapp.com/apod")
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err));
-    };
+    // apolloClient
+    //   .query({
+    //     query: gql`
+    //       query {
+    //         adminsGuides {
+    //           id
+    //           title
+    //           content
+    //         }
+    //       }
+    //     `,
+    //     context: {
+    //       headers: {
+    //         "United-Cart-Authorization":
+    //           "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsInR5cGUiOiJhZG1pbiIsImV4cCI6MTY2OTc5MjAzOX0.13V6y-1PwPTW7XcDNmnYR22b_ooGdS490NohHwT2HMQ",
+    //       },
+    //     },
+    //   })
+    //   .then((res) => console.log(res));
+    // // axios
+    // const getAllTodos2 = async () => {
+    //   res.value = await axios
+    //     .get("https://go-apod.herokuapp.com/apod")
+    //     .then((res) => console.log(res))
+    //     .catch((err) => console.log(err));
+    // };
 
     // fetch
 
-    fetch("https://go-apod.herokuapp.com/apod", {
-      method: "GET",
-    }).then((res) => console.log(res));
-    getAllTodos2();
+    // fetch("http://www.7timer.info/bin/api.pl?lon=113.17&lat=23.09&product=astro&output=json", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     "United-Cart-Authorization":
+    //       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsInR5cGUiOiJhZG1pbiIsImV4cCI6MTY2OTc5MjAzOX0.13V6y-1PwPTW7XcDNmnYR22b_ooGdS490NohHwT2HMQ",
+    //   },
+    //   body: JSON.stringify({
+    //     query: `
+    //     query {
+    //         adminsGuides {
+    //           id
+    //           title
+    //           content
+    //         }
+    //       }
+    //   `
+    //   }),
+    // }).then((res) => console.log(res)).then(result=>console.log(result)).catch(err=>console.dir(err));
 
+    // getAllTodos2();
 
     return {
       res,
